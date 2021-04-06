@@ -27,7 +27,7 @@ EOF
 create_replication_account() {
   echo Creating replication account...
   mysql --user=root --password=$MYSQL_ROOT_PASSWORD --execute="
-    CREATE USER '$REPLICATOR_USERNAME'@'%' IDENTIFIED VIA ed25519 USING password('$REPLICATOR_PASSWORD');
+    CREATE USER '$REPLICATOR_USERNAME'@'%' IDENTIFIED VIA mysql_native_password USING password('$REPLICATOR_PASSWORD');
     GRANT REPLICATION SLAVE, REPLICATION CLIENT ON *.* TO '$REPLICATOR_USERNAME'@'%';
   "
   echo ...replication account created
