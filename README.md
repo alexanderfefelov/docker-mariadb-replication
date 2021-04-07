@@ -94,13 +94,25 @@ read-only slave with server ID 24 will be available at port 12345.
 
 On master:
 
-    docker exec --tty --interactive mariadb-master-42 \
-      mysql --user=root --password --execute="SHOW SLAVE HOSTS \G"
+```bash
+docker exec --tty --interactive mariadb-master-42 \
+  mysql --user=root --password --execute="SHOW SLAVE HOSTS \G"
+```
 
 On slave(s):
 
-    docker exec --tty --interactive mariadb-slave-24 \
-      mysql --user=root --password --execute="SHOW SLAVE STATUS \G"
+```bash
+docker exec --tty --interactive mariadb-slave-24 \
+  mysql --user=root --password --execute="SHOW SLAVE STATUS \G"
+```
+
+## Build non-mainstream version
+
+You may build non-mainstream version if you want:
+
+```bash
+VERSION=10.4.18 ./build.sh
+```
 
 ## What's next?
 
