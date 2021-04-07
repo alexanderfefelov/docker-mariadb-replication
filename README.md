@@ -1,5 +1,9 @@
 # docker-mariadb-replication
 
+```
+---===     W O R K     I N     P R O G R E S S     ===---
+```
+
 Need MariaDB master-slave replication? One command to start master, one command to start each slave. What could be easier?
 
 ```

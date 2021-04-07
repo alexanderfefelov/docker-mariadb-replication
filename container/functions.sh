@@ -1,6 +1,7 @@
 configure_server_id() {
   cat > /etc/mysql/conf.d/server-id.cnf << EOF
 [mysqld]
+
 # https://mariadb.com/kb/en/replication-and-binary-log-system-variables/#server_id
 server-id=$SERVER_ID
 EOF
@@ -9,8 +10,10 @@ EOF
 configure_log_bin() {
   cat > /etc/mysql/conf.d/log-bin.cnf << EOF
 [mysqld]
+
 # https://mariadb.com/kb/en/replication-and-binary-log-system-variables/#log_bin
 log-bin=$LOG_BIN
+
 # https://mariadb.com/kb/en/replication-and-binary-log-system-variables/#binlog_format
 binlog-format=$BINLOG_FORMAT
 EOF
@@ -19,6 +22,7 @@ EOF
 configure_relay_log() {
   cat > /etc/mysql/conf.d/relay-log.cnf << EOF
 [mysqld]
+
 # https://mariadb.com/kb/en/replication-and-binary-log-system-variables/#relay_log
 relay-log=$RELAY_LOG
 EOF
@@ -28,7 +32,7 @@ create_replication_account() {
   echo Creating replication account...
   mysql --user=root --password=$MYSQL_ROOT_PASSWORD --execute="
     CREATE USER '$REPLICATOR_USERNAME'@'%' IDENTIFIED VIA mysql_native_password USING password('$REPLICATOR_PASSWORD');
-    GRANT REPLICATION SLAVE, REPLICATION CLIENT ON *.* TO '$REPLICATOR_USERNAME'@'%';
+    GRANT REPLICATION SLAVE, BINLOG MONITOR ON *.* TO '$REPLICATOR_USERNAME'@'%';
   "
   echo ...replication account created
 }
