@@ -1,3 +1,4 @@
 [mysqld]
+
 # https://mariadb.com/kb/en/server-system-variables/#read_only
 read-only=ON

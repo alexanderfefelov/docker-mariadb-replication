@@ -1,5 +1,7 @@
 [mysqld]
+
 # https://mariadb.com/kb/en/server-system-variables/#character_set_server
 character-set-server=utf8mb4
+
 # https://mariadb.com/kb/en/server-system-variables/#collation_server
 collation-server=utf8mb4_0900_ai_ci
