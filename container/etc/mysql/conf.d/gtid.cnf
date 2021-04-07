@@ -1,3 +1,6 @@
 [mysqld]
 # https://mariadb.com/kb/en/gtid/
 # From MariaDB 10.0.2, global transaction ID is enabled automatically.
+
+# https://mariadb.com/kb/en/gtid/#gtid_strict_mode
+gtid-strict-mode=ON

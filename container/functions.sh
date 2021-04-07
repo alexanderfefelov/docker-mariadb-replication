@@ -40,7 +40,8 @@ connect_slave_to_master() {
       MASTER_HOST='$MASTER_HOST',
       MASTER_PORT=$MASTER_PORT,
       MASTER_USER='$REPLICATOR_USERNAME',
-      MASTER_PASSWORD='$REPLICATOR_PASSWORD';
+      MASTER_PASSWORD='$REPLICATOR_PASSWORD',
+      MASTER_USE_GTID = slave_pos;
   "
   echo ...slave connected to master
 }
