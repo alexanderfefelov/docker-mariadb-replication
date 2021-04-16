@@ -45,7 +45,7 @@ connect_slave_to_master() {
       MASTER_PORT=$MASTER_PORT,
       MASTER_USER='$REPLICATOR_USERNAME',
       MASTER_PASSWORD='$REPLICATOR_PASSWORD',
-      MASTER_USE_GTID = slave_pos;
+      MASTER_USE_GTID = current_pos; -- https://mariadb.com/kb/en/gtid/#using-current_pos-vs-slave_pos
   "
   echo ...slave connected to master
 }
